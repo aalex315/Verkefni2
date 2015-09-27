@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Verkefni 2</title>
+	<link rel="stylesheet" type="text/css" href="css/foundation.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/foundation/foundation.js"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="large-12 columns nav">
+			<h1 class="center">Music in Iceland</h1>
+		</div>
+		<div class="results">
+			
+		</div>
+	</div>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		'url': 'http://apis.is/concerts',
+		'type': 'GET',
+		'dataType': 'json',
+		'success': function(response){
+			console.log(response);
+			Object.size = function(response){
+				var size = 0, key;
+				for (key in response)
+				{
+					if (response.hasOwnProperty(key)); size++;
+				}
+				return size;
+			};
+			for (var i = 0; i < Object.size(response.results); i++){
+				// console.log(response);
+			}
+		}
+	});
+});
+</script>
+</body>
+</html>
