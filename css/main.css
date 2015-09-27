@@ -5,3 +5,6 @@
 .nav{
 	background-color: #E4001B;
 }
+ul{
+	list-style-type: none;
+}

@@ -14,9 +14,9 @@
 			<h1 class="center">Music in Iceland</h1>
 		</div>
 		<div>
-			<li class="mainStuff">
+			<ul class="mainStuff">
 				
-			</li>
+			</ul>
 		</div>
 	</div>
 <script>
@@ -28,9 +28,18 @@ $(document).ready(function() {
 		'success': function(response){
 			console.log(response);
 
+			// Gets the number of objects
 			var responseLength = Object.keys(response.results).length;
 
-			$(".mainStuff").html(response.results[0].eventDateName + " " + response.results[0].name);
+			for(var i = 0; i < responseLength; i++)
+			{
+				var data = document.createElement("li");
+				data.innerHTML = response.results[i].eventDateName + " " + response.results[i].name;
+				$(".mainStuff").append(data);
+			}
+
+			// $(".mainStuff").html(response.results[0].eventDateName + " " + response.results[0].name);
+
 		}
 	});
 });
