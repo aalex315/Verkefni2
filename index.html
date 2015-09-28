@@ -5,13 +5,37 @@
 	<title>Verkefni 2</title>
 	<link rel="stylesheet" type="text/css" href="css/foundation.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script src="js/vendor/jquery.js"></script>
 	<script src="js/foundation/foundation.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 	<div class="nav">
 		<h1 class="center">Music in Iceland</h1>
 	</div>
+<!-- 	<div class="row">
+		<div class="large-6 columns">
+			<p>Date From: <input type="text" id="datefrom"></p>
+		</div>
+		<div class="large-6 columns">
+			<p>Date To: <input type="text" id="dateto"></p>
+		</div>
+	</div> -->
+	<form>
+		<div class="row">
+			<div class="large-6 columns">
+				<label>Date From:
+					<input type="text" id="datefrom">
+				</label>
+			</div>
+			<div class="large-6 columns">
+				<label>Date To:
+					<input type="text" id="dateto">
+				</label>
+			</div>
+		</div>
+	</form>
 	<div class="row">
 		<div class="large-12 columns">
 			<ul class="mainStuff">
@@ -35,7 +59,6 @@ $(document).ready(function() {
 			{
 				var cleanDate = response.results[i].dateOfShow;
 				var cutDate = cleanDate.substring(0,10);
-				// var completeDate = cutDate.replace(/[-]/g, '/');
 
 				var data = "<li date='" + response.results[i].dateOfShow + "'><div class='row idfk'><div class='large-8 columns'><span class='title'>" + response.results[i].eventDateName + "</span><br><span class='idk'>" + response.results[i].name + "</span><br><span class='idk'>" + response.results[i].eventHallName + "</span><br><span class='date'>" + cutDate + "</span><span class='group'>" + response.results[i].userGroupName + "</span></div><div class='large-4 columns'><img src='" + response.results[i].imageSource + "'></div></div></li>";
 
@@ -43,6 +66,8 @@ $(document).ready(function() {
 			}
 		}
 	});
+	$("#datefrom").datepicker({dateFormat: 'yy-mm-dd'});
+	$("#dateto").datepicker({dateFormat: 'yy-mm-dd'});
 });
 </script>
 </body>
