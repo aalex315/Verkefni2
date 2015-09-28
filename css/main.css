@@ -17,6 +17,9 @@ li{
 	/*background-color: #E8E8E8;*/
 	padding: 2px;
 }
+h1{
+	margin:0;
+}
 .title{
 	margin: 0;
 	font-weight: bold;
@@ -32,4 +35,11 @@ li{
 .date{
 	font-size: 12px;
 	color: #A6A6A6;
+}
+.group{
+	font-size: 15px;
+	color:grey;	
+	position: absolute;
+	right: 0;
+	top: 0;
 }
