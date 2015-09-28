@@ -33,15 +33,13 @@ $(document).ready(function() {
 
 			for(var i = 0; i < responseLength; i++)
 			{
-				var data = document.createElement("li");
+				// var data = document.createElement("li");
+				var data = "<li date='" + response.results[i].dateOfShow + "'><div class='row idfk'><div class='large-8 columns'><span class='title'>" + response.results[i].eventDateName + "</span><br><span class='idk'>" + response.results[i].name + "</span><br><span class='idk'>" + response.results[i].eventHallName + "</span><br><span class='date'>" + response.results[i].dateOfShow + "</span><span class='group'>" + response.results[i].userGroupName + "</span></div><div class='large-4 columns'><img src='" + response.results[i].imageSource + "'></div></div></li>";
 
-				data.innerHTML = "<div class='row idfk'><div class='large-8 columns'><span class='title'>" + response.results[i].eventDateName + "</span><br><span class='idk'>" + response.results[i].name + "</span><br><span class='idk'>" + response.results[i].eventHallName + "</span><br><span class='date'>" + response.results[i].dateOfShow + "</span><span class='group'>" + response.results[i].userGroupName + "</span></div><div class='large-4 columns'><img src='" + response.results[i].imageSource + "'></div></div>";
+				// data.innerHTML = "<div class='row idfk'><div class='large-8 columns'><span class='title'>" + response.results[i].eventDateName + "</span><br><span class='idk'>" + response.results[i].name + "</span><br><span class='idk'>" + response.results[i].eventHallName + "</span><br><span class='date'>" + response.results[i].dateOfShow + "</span><span class='group'>" + response.results[i].userGroupName + "</span></div><div class='large-4 columns'><img src='" + response.results[i].imageSource + "'></div></div>";
 
 				$(".mainStuff").append(data);
 			}
-
-			// $(".mainStuff").html(response.results[0].eventDateName + " " + response.results[0].name);
-
 		}
 	});
 });
