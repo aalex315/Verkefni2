@@ -14,26 +14,19 @@
 	<div class="nav">
 		<h1 class="center">Music in Iceland</h1>
 	</div>
-<!-- 	<div class="row">
-		<div class="large-6 columns">
-			<p>Date From: <input type="text" id="datefrom"></p>
-		</div>
-		<div class="large-6 columns">
-			<p>Date To: <input type="text" id="dateto"></p>
-		</div>
-	</div> -->
 	<form>
 		<div class="row">
-			<div class="large-6 columns">
+			<div class="large-5 columns">
 				<label>Date From:
-					<input type="text" id="datefrom">
+					<input type="text" id="datefrom" placeholder="Date From">
 				</label>
 			</div>
-			<div class="large-6 columns">
+			<div class="large-5 columns">
 				<label>Date To:
-					<input type="text" id="dateto">
+					<input type="text" id="dateto" placeholder="Date To">
 				</label>
 			</div>
+			<input type="button" class="button small large-2 columns" id="button" value="Look for concerts" onclick="getConcerts()">
 		</div>
 	</form>
 	<div class="row">
@@ -69,6 +62,12 @@ $(document).ready(function() {
 	$("#datefrom").datepicker({dateFormat: 'yy-mm-dd'});
 	$("#dateto").datepicker({dateFormat: 'yy-mm-dd'});
 });
+
+function getConcerts(){
+	$(".mainStuff").empty();
+	var dateFrom = $("#datefrom").val();
+	console.log(dateFrom);
+}
 </script>
 </body>
 </html>
