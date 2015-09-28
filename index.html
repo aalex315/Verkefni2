@@ -13,7 +13,7 @@
 		<div class="large-12 columns nav">
 			<h1 class="center">Music in Iceland</h1>
 		</div>
-		<div>
+		<div class="large-12 columns">
 			<ul class="mainStuff">
 				
 			</ul>
@@ -34,7 +34,9 @@ $(document).ready(function() {
 			for(var i = 0; i < responseLength; i++)
 			{
 				var data = document.createElement("li");
-				data.innerHTML = response.results[i].eventDateName + " " + response.results[i].name;
+
+				data.innerHTML = "<span class='title'>" + response.results[i].eventDateName + "</span><br><span class='idk'>" + response.results[i].name + "</span><br><span class='date'>" + response.results[i].dateOfShow + "</span><br>";
+
 				$(".mainStuff").append(data);
 			}
 
