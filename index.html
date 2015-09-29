@@ -43,7 +43,7 @@ $(document).ready(function() {
 		'type': 'GET',
 		'dataType': 'json',
 		'success': function(response){
-			console.log(response);
+			// console.log(response);
 
 			// Gets the number of objects
 			var responseLength = Object.keys(response.results).length;
@@ -66,7 +66,34 @@ $(document).ready(function() {
 function getConcerts(){
 	$(".mainStuff").empty();
 	var dateFrom = $("#datefrom").val();
-	console.log(dateFrom);
+	var dateTo = $("#dateto").val();
+	// if(new Date(dateFrom) <= new Date(dateTo)){
+	// 	console.log("Success");
+	// }
+	$.ajax({
+		'url': 'http://apis.is/concerts',
+		'type': 'GET',
+		'dataType': 'json',
+		'success': function(response){
+			console.log(response);
+			// Gets the number of objects
+			var responseLength = Object.keys(response.results).length;
+
+			for(var i = 0; i < responseLength; i++)
+			{
+				var cleanDate = response.results[i].dateOfShow;
+				var cutDate = cleanDate.substring(0,10);
+
+				if (new Date(cutDate) >= new Date(dateFrom) && new Date(cutDate) <= new Date(dateTo)) {
+					var data = "<li date='" + response.results[i].dateOfShow + "'><div class='row idfk'><div class='large-8 columns'><span class='title'>" + response.results[i].eventDateName + "</span><br><span class='idk'>" + response.results[i].name + "</span><br><span class='idk'>" + response.results[i].eventHallName + "</span><br><span class='date'>" + cutDate + "</span><span class='group'>" + response.results[i].userGroupName + "</span></div><div class='large-4 columns'><img src='" + response.results[i].imageSource + "'></div></div></li>";
+				}
+				else if(new Date(cutDate) >= new Date(dateTo)){
+					break;
+				}
+				$(".mainStuff").append(data);
+			}
+		}
+	});
 }
 </script>
 </body>
