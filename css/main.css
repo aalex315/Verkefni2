@@ -34,7 +34,8 @@ h1{
 }
 .date{
 	font-size: 12px;
-	color: #A6A6A6;
+	color: #595959;
+	text-decoration: underline;
 }
 .group{
 	font-size: 15px;
